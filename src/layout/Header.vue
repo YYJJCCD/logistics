@@ -20,7 +20,7 @@
           <a-avatar class="avatar"
                     :size="26"
                     src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"/>
-          <div class="avatar-btn-username">{{  }}</div>
+          <div class="avatar-btn-username">{{ details.email }}</div>
         </div>
       </a-button>
       <a-menu slot="overlay">
@@ -52,7 +52,7 @@ export default {
 
   data() {
     return {
-      // details: this.$store.state.user.details ? this.$store.state.user.details : {}
+      details: this.$store.state.user.details ? this.$store.state.user.details : {}
     }
   },
 

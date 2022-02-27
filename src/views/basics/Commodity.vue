@@ -127,7 +127,6 @@ export default {
   },
 
   mounted() {
-    console.log(1);
     this.loadTableData();
   },
 
@@ -159,7 +158,6 @@ export default {
     loadTableData() {
       this.loading = true;
       api.findAll().then((res) => {
-        console.log(res);
         setTimeout(() => {
           this.loading = false;
           this.data = res.data;

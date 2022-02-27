@@ -21,8 +21,8 @@
   
     mounted() {
       this.$message.success(
-          '欢迎管理员 ' ,
-          6,
+        '欢迎管理员 ' + this.$store.state.user.details.email,
+        6,
       );
     }
   

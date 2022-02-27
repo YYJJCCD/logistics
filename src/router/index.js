@@ -1,35 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Layout from '@/layout/Index'
+import store from '../store'
+import routes from "@/router/routers"
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
+//顶部进度条样式
+NProgress.configure({
+    showSpinner: false,
+    speed: 800,
+});
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '',
-    name: 'Home',
-    component: Layout,
-    children: [
-      {
-        path: 'commodity',
-        name: 'Commodity',
-        component: () => import('@/views/basics/Commodity')
-      },
-      {
-        path: '/about',
-        name: 'About',
-        component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-      }
-    ]
-  },
-
-]
-
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
+})
+
+//路由卫士
+router.beforeEach((to, from, next) => {
+    NProgress.start()
+    to.meta.auth && !store.state.user.token ? next("/login") : next()
+})
+
+router.afterEach(() => {
+    NProgress.done()
 })
 
 export default router

@@ -1,52 +1,31 @@
 import service from "@/request";
 
-export function IsInit() {
+export function hasInit() {
     return service({
-        url: '/admin/hasInit',
+        url: '/admin/basics/hasInit',
         method: 'get',
     })
 }
 
-export function Init(data) {
+export function init(data) {
     return service({
-        url: '/admin/init',
+        url: '/admin/basics/init',
         method: 'post',
         data: data
     })
 }
 
-export function DeleteAdmin(id) {
+export function login(type, data) {
     return service({
-        url: '/admin?id=' + id,
-        method: 'delete',
-    })
-}
-
-export function FindAllAdmin() {
-    return service({
-        url: '/admin',
-        method: 'get',
-    })
-}
-
-export function SaveAdmin(data) {
-    return service({
-        url: '/admin',
+        url: '/admin/basics/login?type=' + type,
         method: 'post',
         data: data
     })
 }
 
-export function AdminSendEmail(email) {
+export function sendEmail(data) {
     return service({
-        url: '/admin/sendEmail?email=' + email,
-        method: 'get'
-    })
-}
-
-export function AdminLogin(type, data) {
-    return service({
-        url: '/admin/login?type=' + type,
+        url: '/admin/basics/sendEmail',
         method: 'post',
         data: data
     })

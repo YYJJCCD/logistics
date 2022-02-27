@@ -2,13 +2,10 @@ import service from '@/request'
 
 
 export function findAll() {
-    console.log('findAll')
     return service({
         url: '/commodity/findAll',
         method: 'get'
     })
-    console.log(s)
-    return s
 }
 export function findById(id) {
     return service({

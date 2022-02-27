@@ -19,8 +19,9 @@ service.interceptors.response.use(
             message.error('请求错误: ' + res.msg)
         }
         if(res.code === 403){
+            console.log(2)
             message.error('没有访问权限')
-            router.push("/403")
+            router.push("/login")
         }
         return res
     },

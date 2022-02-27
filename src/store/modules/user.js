@@ -9,6 +9,7 @@ const mutations = {
 
     saveToken(state, token) {
         state.token = token
+        console.log(token)
         localStorage.setItem("token", token)
     },
 

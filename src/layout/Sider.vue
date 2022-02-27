@@ -79,7 +79,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   #sider{
     overflow: auto;
     height: 100vh;
