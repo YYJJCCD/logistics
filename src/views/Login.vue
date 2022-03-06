@@ -45,7 +45,7 @@
 
 <script>
   import * as api from "@/api/admin";
-
+  import service from "@/request"
 
   export default {
 
@@ -97,6 +97,7 @@
           
           api.login(type, this.form).then((res) => {
             if (res.status) {
+              
               this.$store.commit('user/saveToken', res.data.token)
               this.$store.commit('user/saveLoginUser', res.data.admin)
               console.log(this.$store)

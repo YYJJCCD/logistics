@@ -14,16 +14,24 @@
   import Main from '@/layout/Main';
   import Footer from '@/layout/Footer';
   import Header from '@/layout/Header';
+  import {checkToken} from '@/api/admin'
 
   export default {
   
     components: {Sider, Main, Footer, Header},
   
     mounted() {
-      this.$message.success(
-        '欢迎管理员 ' + this.$store.state.user.details.email,
-        6,
-      );
+      checkToken().then(res => {
+        console.log(res)
+        if (res.code === 401) {
+          return
+        }
+        this.$message.success(
+          '欢迎管理员 ' + this.$store.state.user.details.email,
+          6,
+        );
+      })
+
     }
   
   }

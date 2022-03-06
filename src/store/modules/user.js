@@ -2,15 +2,15 @@ const state = {
     token: localStorage.getItem("token"),
     details: JSON.parse(localStorage.getItem("user"))
 }
-
 const getters = {}
 
 const mutations = {
 
     saveToken(state, token) {
         state.token = token
-        console.log(token)
+        console.log("args token = " + token)
         localStorage.setItem("token", token)
+        console.log("save token = " + localStorage.getItem("token"))
     },
 
     saveLoginUser(state, user) {

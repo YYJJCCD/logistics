@@ -28,7 +28,7 @@
               { title: "商品管理", path: "/commodity" },
               { title: "来往单位", path: "/company" },
               { title: "员工管理", path: "/employee" },
-              { title: "仓库管理", path: "/warehouse" },
+              { title: "仓库管理", path: "/storage" },
             ]
           },
           {
